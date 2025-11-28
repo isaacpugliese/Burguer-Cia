@@ -43,6 +43,12 @@ header {
     color: #8B0000;
 }
 
+/* Logout button styling for top menu on cart page */
+#menu-container .menu .logout-btn{
+    background: #ffffff; color: #8B0000; padding: 8px 12px; border-radius: 6px; font-weight:600;
+}
+#menu-container .menu .logout-btn:hover{ background:#f6f6f6 }
+
 #banner-container {
     position: relative;
     height: 57vh;
@@ -106,6 +112,8 @@ header {
     padding: 0 6%;
     box-sizing: border-box;
 }
+
+
 
 .produto-item {
     background: #ffffff;
@@ -337,12 +345,302 @@ footer{
 
 /* Fim pagina de login*/
 
-
-
-
-/* responsividade: empilha em telas pequenas */
-@media (max-width: 900px){
-    .contato-container{ grid-template-columns: 1fr; gap: 24px; }
-    .contato-mapa iframe{ height: 300px; }
+.produtos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
+.pedido-item {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: 14px;
+    align-items: flex-start; /* Corrigido */
+    min-height: 140px;
+}
+
+.pedido-item img {
+    width: 120px;
+    height: 86px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.produto-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: flex-start;
+    min-height: 86px;
+}
+
+.produto-info h3 { color: #8B0000; margin-bottom: 6px; }
+.produto-info p { color: #666; font-size: 14px; margin-bottom: 8px; }
+
+/* SEGREDO: o footer 'cola' para baixo */
+.produto-footer { 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto; /* Coloca o footer sempre embaixo */
+}
+.produto-footer .preco { font-weight: bold; color: #333; }
+
+.btn-adicionar{
+    background: #c62828; 
+    color: #fff; 
+    border: none; 
+    padding: 8px 14px; 
+    border-radius: 6px; 
+    cursor: pointer;
+    font-weight: 600;
+    transition: background .2s;
+}
+.btn-adicionar:hover{ background:#8B0000 }
+
+/* Mantém o layout do main, sidebar, etc (restante do seu CSS igual ao original) */
+main.produto-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 20px auto 60px;
+    padding: 0 6%;
+    box-sizing: border-box;
+}
+main.produto-container.carrinho {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 24px;
+    align-items: start;
+}
+
+main.produto-container.carrinho .produtos-list { grid-column: 1/2; }
+main.produto-container.carrinho .pedido-sidebar { position: static; grid-column: 2/3; width:100%; }
+
+.pedido-card{
+    background: #ffffff; border-radius: 8px; padding: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    display: flex; flex-direction: column; gap: 12px;
+    position: sticky; top: 20px;
+}
+.pedido-card h3{ color: #8B0000; margin: 0; }
+
+.pedido-list{ display: flex; flex-direction: column; gap: 8px; }
+.pedido-row { display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: 0; background: #fff; border: 1px solid #f0f0f0; }
+.pedido-row img{ width: 48px; height: 42px; object-fit: cover; border-radius: 6px; }
+.pedido-row .detalhes{ flex: 1; display:flex; flex-direction: column; gap:2px; }
+.pedido-row .detalhes strong{ color: #333; font-size: 14px; }
+.pedido-row .detalhes span{ color: #666; font-size: 13px; }
+.btn-excluir{ background: #f44336; color:#fff; border:none; padding:6px 8px; border-radius:6px; cursor:pointer; }
+.btn-excluir:hover{ background:#d32f2f }
+
+.Pedidos{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 0;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    width: 100%;
+    box-sizing: border-box;
+}
+.Pedidos strong{ color:#333; font-size: 14px; display:block; }
+.Pedidos { font-size: 13px; color:#666; }
+.Pedidos br{ display:none; }
+.Pedidos:hover{ background: #fafafa }
+
+.pedido-total{ display:flex; justify-content:space-between; align-items:center; padding-top: 8px; font-weight:700; border-top:1px solid #eee; }
+.btn-finalizar{ background:#c62828; color:#fff; border:none; padding:12px 14px; border-radius:8px; cursor:pointer; width:100%; margin-top:8px; }
+
+.pedido-sidebar{
+    width: 360px;
+}
+
+@media (max-width: 578px) {
+  nav#menu-container {
+      width: 100vw;
+      padding: 0;
+      margin: 0;
+      background: #b52d2f;
+  }
+  .menu {
+      display: flex !important;
+      flex-wrap: wrap !important;    /* Permite quebrar linha */
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      padding: 8px 0;
+      font-size: 1.1em;
+  }
+  .menu li {
+      display: inline-block;
+      margin: 4px 10px;
+      padding: 0;
+  }
+  .menu .title {
+      flex-basis: 100%;
+      font-weight: bold;
+      color: #fff;
+      font-size: 1.3em;
+      margin-bottom: 3px;
+      text-align: center;
+      padding: 0;
+      margin-top: 0;
+  }
+  .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 3px 0;
+      display: inline-block;
+  }
+
+  /* Produtos em Destaque */
+  #produto .produto-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+    width: 100% !important;
+    padding: 0;
+    margin: 0;
+  }
+  #produto .produto-item {
+    width: 96vw !important;
+    max-width: 390px;
+    margin: 0 auto;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    background: #fff;
+    padding-bottom: 10px;
+  }
+  #produto .produto-item img {
+    width: 100% !important;
+    height: auto;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 14px 14px 0 0;
+    margin-bottom: 0;
+    display: block;
+  }
+  #produto .produto-item .card-body {
+    width: 94%;
+    padding: 14px 0 0 0;
+    text-align: center;
+  }
+  #produto .produto-item .card-body h3 {
+    font-size: 1.18em;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  #produto .produto-item .card-body p {
+    font-size: 1em;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  #produto .btn-comprar {
+    width: 90%;
+    margin: 6px auto 0 auto;
+    padding: 12px 0;
+    font-size: 1.08em;
+    border-radius: 8px;
+    display: block;
+    background: #c62828;
+    color: white;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+
+  /* Avaliações (uma coluna, espaçamento) */
+  .avaliacao-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 18px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .avaliacao-item {
+    width: 96vw;
+    max-width: 380px;
+    margin: 0 auto;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    background: #fff7ed;
+    text-align: center;
+    padding: 16px 10px 10px 10px;
+    font-size: 1.05em;
+  }
+  .avaliacao-item p.user {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #b52d2f;
+  }
+
+  /* Contato: Coluna (mapa em cima, form embaixo, 100%) */
+  .contato-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+    width: 100%;
+  }
+  .contato-mapa {
+    width: 100% !important;
+    max-width: 100%;
+    margin: 0 auto;
+    min-width: unset;
+    min-height: 180px;
+    display: block;
+  }
+  .contato-mapa iframe {
+    width: 100% !important;
+    height: 200px !important;
+    border: none !important;
+    display: block;
+    border-radius: 12px;
+  }
+  .contato-form {
+    width: 100% !important;
+    max-width: 100%;
+    margin: 0 auto 8px auto;
+    padding: 0;
+  }
+  .contato-form form {
+    width: 100%;
+  }
+  .contato-form input,
+  .contato-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: 1em;
+  }
+  .contato-form .btn-enviar {
+    width: 100%;
+    padding: 13px 0;
+    border-radius: 8px;
+    font-size: 1.11em;
+    background: #c62828;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+  }
+  .contato-info {
+    font-size: 0.98em;
+    margin: 7px 0 0 0;
+  }
+}
