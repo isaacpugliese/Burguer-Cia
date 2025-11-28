@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burguer&Cia</title>
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 
 <body>
@@ -34,10 +34,12 @@
                         culinária italiana</p>
                     <div class="produto-footer">
                         <span class="preco">R$ 27,00</span>
-                        <button class="btn-adicionar">Adicionar ao Pedido</button>
+                        <button data-item="hamburguer" id="btn-adicionar" class="btn-adicionar">Adicionar ao
+                            Pedido</button>
                     </div>
                 </div>
             </div>
+            
             <div class="pedido-item">
                 <img src="hot-dog.jpg" alt="Hot Dog Gourmet">
                 <div class="produto-info">
@@ -45,28 +47,33 @@
                     <p>hot-dog suculento com bacon caramelizado e mostarda.</p>
                     <div class="produto-footer">
                         <span class="preco">R$ 22,00</span>
-                        <button class="btn-adicionar">Adicionar ao Pedido</button>
+                        <button data-item="hotdog" id="btn-adicionar" class="btn-adicionar">Adicionar ao Pedido</button>
                     </div>
                 </div>
             </div>
+
             <div class="pedido-item">
-                <img src="salame.jpg" alt="Sanduíche de Saleme">
+                <img src="salame.jpg" alt="Sanduíche de Salame">
                 <div class="produto-info">
                     <h3>Sanduíche de Saleme</h3>
                     <p>Lanche que combina o sabor salgado do salame com a leveza e o crocante do croissant.</p>
                     <div class="produto-footer">
                         <span class="preco">R$ 30,00</span>
-                        <button class="btn-adicionar">Adicionar ao Pedido</button>
+                        <button data-item="salame" id="btn-adicionar" class="btn-adicionar">Adicionar ao Pedido</button>
                     </div>
                 </div>
             </div>
         </div>
+
         <aside class="pedido-sidebar">
             <div class="pedido-card">
                 <h3>Pedido</h3>
-                <div class="pedido-list">Ainda não há produtos.</div>
-                <div class="pedido-total">Total: <strong>R$ 0,00</strong></div>
-                <button class="btn-finalizar">Finalizar Pedido</button>
+                <div id="pedido-list" class="pedido-list"></div>
+                <div class="pedido-total">Total:R$ <strong id="total">0</strong></div>
+                <button id="btn-finalizar" class="btn-finalizar">Finalizar Pedido</button>
+            </div>
+            <div class="add-pedido">
+
             </div>
         </aside>
     </main>
@@ -80,7 +87,7 @@
             <a href="https://www.facebook.com/" target="_blank"><img src="facebook.png" alt="Facebook" width="20px"></a>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="carrinho.js"></script>
 </body>
 
 </html>
